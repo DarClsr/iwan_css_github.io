@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>social</title>
+    <link href="../static/css/common.css"  rel="styleSheet" type="text/css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body{
+            transition: .5s;
+        }
+        .list{
+            display: flex;
+            justify-content: center;
+            position: relative;
+
+        }
+        .list li::before{
+            content: attr(data-text);
+            font-size: 12vw;
+            font-weight: 700;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            opacity: 0;
+            transition: .5s;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .list li::after{
+            content: attr(data-info);
+            font-size: 5vw;
+            font-weight: 700;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            opacity: 0;
+            transition: .5s;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+
+        .list li:hover::before{
+            opacity: .1;
+            transform: translate(-50%,calc(-50% + 180px));
+        }
+        .list li:hover::after{
+            opacity: .1;
+            transform: translate(-50%,calc(-50% - 180px));
+        }
+       
+        .list li a{
+            width: 120px;
+            height: 120px;
+            background: #fff;
+            margin: 20px;
+            display: inline-block;
+            text-align: center;
+            line-height: 120px;
+            font-size: 4em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 25px 35px rgba(0, 0, 0, .1);
+            color: #333;
+            transform-style: preserve-3d;
+            perspective: 500px;
+            border-radius: 10px;
+            transition: background .25s;
+        }
+
+        .list li a:hover.github{
+            background: #8241f9;
+        }
+        .list li a:hover.wx{
+            background: #09B83E;
+        }
+        .list li a:hover.google{
+            background: #fd7e14;
+        }
+        .list li a .fa{
+            transition: .25s;
+            pointer-events: none;
+        }
+
+        .list li a:hover .fa{
+            color: #fff;
+            transform: scale(1.25) translateZ(50px);
+        }
+        .js-tilt-glare{
+            border-radius: 10px;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <ul class="list">
+        <li data-text="Github" data-color="#8241f9" data-info="DarClsr">
+            <a href="#" class="github">
+                <i class="fa fa-github"></i>
+            </a>
+        </li>
+        <li data-text="Wechat" data-color="#09B83E" data-info="1322677864@qq.com">
+            <a href="#" class="wx">
+                <i class="fa fa-weixin"></i>
+            </a>
+        </li>
+        <li data-text="Google" data-color="#fd7e14" data-info="iwanduan758@gmail.com">
+            <a href="#" class="google">
+                <i class="fa fa-google"></i>
+            </a>
+        </li>
+    </ul>
+
+    <script src="../static/js/vanilla-tilt.js" type="text/javascript"></script>
+    <script>
+        // init vanillaTilt
+        VanillaTilt.init(document.querySelectorAll(".list li a"), {
+            max: 30,
+            speed: 400,
+            glare:true,
+            "max-glare":1
+	    });
+        const list=document.querySelectorAll(".list li");
+        const bg=document.querySelector("body");
+        list.forEach(element=>{
+            element.addEventListener("mouseenter",(event)=>{
+                const color=event.target.getAttribute("data-color");
+                bg.style.background=color
+            })
+            element.addEventListener("mouseleave",(event)=>{
+                bg.style.background="#fff"
+            })
+        })
+    </script>
+    
+</body>
+</html>
