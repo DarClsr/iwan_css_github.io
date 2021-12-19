@@ -4,30 +4,61 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iwan</title>
+    <title>Iwan Blog</title>
+    <link href="https://darclsr.github.io/iwan_css_github.io/static/css/index.css"  rel="styleSheet" type="text/css"/>
 </head>
 <body>
-
-    <div class="page">
-        <div id="css">
-            <h1> css 好看的案例</h1>
-
-            <ul>
-                <li >
-                    <a href="./pages/circular_menu.html" alt="圆形菜单">circular_menu</a>
-                </li>
-                <li >
-                    <a href="./pages/navgation.html" alt="底部导航栏">navgation</a>
-                </li>
-                <li >
-                    <a href="./pages/social.html" alt="社交创意菜单">social</a>
-                </li>
-            </ul>
-           
+    <header>
+        <div class="logo">
+            iwan
         </div>
-    </div>
+        <div class="right_side">
+            <div class="btns day_night">
+                <ion-icon name="moon-outline"></ion-icon>
+                <ion-icon name="sunny-outline"></ion-icon>
+            </div>
+            <div class="btns menu">
+                <ion-icon name="menu-outline"></ion-icon>
+                <ion-icon name="close-outline"></ion-icon>
+            </div>
+        </div>
+    </header>
 
-     
+    <main>
+        <h2>Trees</h2>
+        <img class="mask" src="https://darclsr.github.io/iwan_css_github.io/static/image/mask.jpg"/>
+        <video autoplay src="https://vod-progressive.akamaized.net/exp=1639925561~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F1971%2F17%2F434856918%2F1894719766.mp4~hmac=399aea50a92b18a4f5c5ca0aacad03e0dbee6c01e43942012f08488182886c7a/vimeo-prod-skyfire-std-us/01/1971/17/434856918/1894719766.mp4"" loop muted></video>
+    </main>
+
+    <nav class="navgation">
+        <h1>小案例</h1>
+        <li >
+            <a href="./pages/circular_menu.html" alt="圆形菜单">circular_menu</a>
+        </li>
+        <li >
+            <a href="./pages/navgation.html" alt="底部导航栏">navgation</a>
+        </li>
+        <li >
+            <a href="./pages/social.html" alt="社交创意菜单">social</a>
+        </li>
+    </nav>
+     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+         const dayAction=document.querySelector(".day_night")
+         const menuAction=document.querySelector(".menu")
+         const page=document.querySelector("body")
+         const nav=document.querySelector(".navgation")
+
+         dayAction.addEventListener("click",function(e){
+            dayAction.classList.toggle("active");
+            page.classList.toggle("dark")
+         })
+         menuAction.addEventListener("click",function(e){
+            menuAction.classList.toggle("active");
+            nav.classList.toggle("active");
+         })
+    </script>
     
 </body>
 </html>
